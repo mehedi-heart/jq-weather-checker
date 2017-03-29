@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>weather checker</title>
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="js/jquery-ui.css">
+   <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body> 
+  
+  <div class="weather-box">
+      <span>check your city weather</span>
+      <h3 id="city">city</h3>
+      <h1 id="country">country</h1>
+      <h2><span id="temp">00</span><sup>o</sup><span>c</span></h2>
+      <input type="text" placeholder="city name" class="form-control">
+      <button type="button" class="btn btn-warning">check weather</button>
+      
+     <a class="twitter-share-button btn btn-info"
+  href="https://twitter.com/intent/tweet?text=Hello%20world"
+  data-size="large">
+Tweet</a>
+
+     
+  </div> 
+  
+  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    
+    
+    $(function(){
+        
+        $(".btn-warning").click(function(){
+            var a = $(".form-control").val();
+            getvalue(a);
+        });
+        
+        function getvalue(a){
+            $.ajax({
+                url:"http://api.apixu.com/v1/current.json?key=92654870d3f74c1097f61055172903&q="+a,
+                dataType:"json",
+                success:function(data){
+                   $("#city").text(data.location.name);
+                   $("#country").text(data.location.country);
+             $("#temp").text(data.current.temp_c); 
+                },
+                error:function(){
+                   alert("plese enter right city name")
+                }
+            })
+        }
+    })
+    
+    
+  
+ 
+    
+</script>
+</body>
+
+</html>

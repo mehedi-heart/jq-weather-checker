@@ -1,0 +1,40 @@
+body{
+  font-family: 'Nova Oval', cursive;
+ font-size: 18px;
+    background-image: url(../images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+body::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+         background: rgba(9, 45, 10, 0.61);
+        z-index: 0;
+}
+.weather-box{
+    width: 400px;
+    border: 2px solid #fff;
+    color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+        z-index: 1;
+    border-radius: 10px;
+}
+.form-control{
+    display: inline;
+    width: auto;
+    margin-bottom: 20px;
+}
+.btn{
+    cursor: pointer;
+}
+.btn-info{
+    margin-bottom: 30px
+}
